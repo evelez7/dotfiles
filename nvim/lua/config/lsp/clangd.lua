@@ -2,7 +2,7 @@ local lsp_status = require("lsp-status")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 lsp_status.config({
-  status_symbol = "󰒍 ", -- optional icon
+  status_symbol = "󰒍 ",
   indicator_errors = "",
   indicator_warnings = "",
   indicator_info = "",
@@ -28,9 +28,11 @@ vim.lsp.config('clangd', {
   -- lsp-status specifics
   handlers = lsp_status.extensions.clangd.setup(),
     init_options = {
-    clangdFileStatus = true
+      clangdFileStatus = true
   },
+  -- Merge the capabilities from cmp_nvim with others possibly found elsewhere
   capabilities = vim.tbl_extend('keep', lsp_capabilities or {}, lsp_status.capabilities),
+  -- Attach lsp_status once clangd runs
   on_attach = function(client, bufnr)
     lsp_status.on_attach(client)
   end,
@@ -38,6 +40,7 @@ vim.lsp.config('clangd', {
 
 vim.lsp.enable('clangd')
 
+-- Only start clangd when entering a C++ source file
 vim.api.nvim_create_autocmd({'BufEnter', 'BufWinEnter'}, {
   pattern = { '*.c', '*.cpp', '*.h', '*.hpp', '*.cc', '*.cxx' },
   callback = function(args)
