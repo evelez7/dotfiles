@@ -9,7 +9,9 @@ return {
     config = function()
       require("oil").setup({
         default_file_explorer = true,
-        columns = { },
+        columns = {
+          "icon"
+        },
         keymaps = {
           ["<C-h>"] = false,
           ["<C-c"] = false,
