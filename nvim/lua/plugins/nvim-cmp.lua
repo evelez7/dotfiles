@@ -223,7 +223,8 @@ return {
       completion = {
           completeopt = "menu,menuone,noinsert",
       },
-      window = {
+      window = require('noirbuddy.plugins.cmp').window,
+      --[[{
         documentation = {
             border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
         },
@@ -231,7 +232,7 @@ return {
             border = {'┌', '─', '┐', '│', '┘', '─', '└', '│'},
         }
 
-      },
+      },--]]
       -- config nvim cmp to work with snippet engine
       snippet = {
         expand = function(args)

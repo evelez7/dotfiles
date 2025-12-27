@@ -31,14 +31,16 @@ return {
     }
 
     local branch = {'branch', icon = {'', color={fg='#A6D4DE'}}, '|'}
-
-
+    local noirbuddy_lualine = require('noirbuddy.plugins.lualine')
     lualine.setup({
+      theme = noirbuddy_lualine.theme,
       icons_enabled = true,
       options = {
         component_separators = { left = "|", right = "|" },
         section_separators = { left = "|", right = "" },
       },
+      sections = noirbuddy_lualine.sections,
+      inactive_sections = noirbuddy_lualine.inactive_settings,
       sections = {
         lualine_a = { mode },
         lualine_b = { branch },

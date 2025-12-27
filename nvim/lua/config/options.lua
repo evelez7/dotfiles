@@ -5,6 +5,9 @@ vim.g.maplocalleader = " "
 
 vim.opt.guicursor = ""
 vim.opt.nu = true
+vim.opt.signcolumn = "yes"
+
+vim.opt.cmdheight = 0
 
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
