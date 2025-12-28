@@ -6,8 +6,8 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Move up in buffer with cursor 
 vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
 
-vim.api.nvim_set_keymap('n', '<leader>t', ':ToggleTerm<CR>', opts)
-vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', opts)
+vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-N>:FloatermToggle<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>t', ':FloatermToggle<CR>', opts)
 
 -- Telescope
 local builtin = require('telescope.builtin')

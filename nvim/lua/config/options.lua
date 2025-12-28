@@ -27,3 +27,15 @@ vim.opt.colorcolumn = "80"
 
 vim.g.editorconfig = true
 
+-- autocmd stuff
+vim.api.nvim_create_autocmd(
+  "User",
+  {
+    pattern = "UnceptionEditRequestReceived",
+    callback = function()
+      -- Toggle the terminal off.
+      require('FTerm').toggle()
+    end
+  }
+)
+
