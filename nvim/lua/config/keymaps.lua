@@ -1,7 +1,7 @@
 local opts = { noremap = true, silent = true }
 
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Move down in buffer with cursor centered"})
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Move up in buffer with cursor centered"})
+vim.keymap.set("n", "<C-j>", "<Cmd>normal! <C-d>zz<CR>", { silent = true })
+vim.keymap.set("n", "<C-k>", "<Cmd>normal! <C-u>zz<CR>", { silent = true })
 
 vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
@@ -17,4 +17,19 @@ vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'List Telescope buff
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'List help tags' })
 vim.keymap.set('n', '<leader>fs', builtin.current_buffer_fuzzy_find, { desc = 'Search buffer' })
 vim.api.nvim_set_keymap('n', 'Q', ':Telescope cmdline<CR>', { noremap = true, desc = "Cmdline" })
+
+-- Harpoon
+local harpoon = require("harpoon")
+harpoon:setup()
+
+vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
+vim.keymap.set("n", "<C-a>", function() harpoon:list():remove() end)
+vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
+vim.keymap.set("n", "<C-t>", function() harpoon:list():select(2) end)
+vim.keymap.set("n", "<C-n>", function() harpoon:list():select(3) end)
+vim.keymap.set("n", "<C-s>", function() harpoon:list():select(4) end)
+-- Toggle previous & next buffers stored within Harpoon list
+vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
+vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
 

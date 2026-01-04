@@ -223,7 +223,6 @@ return {
       completion = {
           completeopt = "menu,menuone,noinsert",
       },
-      window = require('noirbuddy.plugins.cmp').window,
       --[[{
         documentation = {
             border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
