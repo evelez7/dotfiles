@@ -1,8 +1,11 @@
 return {
-  {
-    "igorlfs/nvim-dap-view",
-    dependencies = { "mfussenegger/nvim-dap", },
-    opts = {},
-  },
+    {
+        "igorlfs/nvim-dap-view",
+        ---@module 'dap-view'
+        ---@type dapview.Config
+        opts = {
+          auto_toggle = true,
+        },
+    },
 }
 

@@ -18,6 +18,13 @@ return {
         MiniFiles.reveal_cwd()
       end, { desc = "Toggle into currently opened file" })
     end
+  },
+  {
+    'nvim-mini/mini.cursorword',
+    config = function()
+      local MiniCursorWord = require('mini.cursorword')
+      MiniCursorWord.setup()
+    end
   }
 }
 

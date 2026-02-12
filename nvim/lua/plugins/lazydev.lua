@@ -1,3 +1,4 @@
+-- plugin manager
 return {
   {
     "folke/lazydev.nvim",

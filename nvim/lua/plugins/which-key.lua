@@ -1,3 +1,4 @@
+-- shows key hints when pressing leader
 return {
   {
     "folke/which-key.nvim",

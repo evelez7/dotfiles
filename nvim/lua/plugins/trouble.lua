@@ -1,3 +1,4 @@
+-- show diagnostics
 return {
   {
     "folke/trouble.nvim",

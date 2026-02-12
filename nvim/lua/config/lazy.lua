@@ -35,5 +35,8 @@ require("lazy").setup({
     enabled = true,
     notify = false
   },
+  performance = {
+    reset_packpath = false,
+  },
 })
 

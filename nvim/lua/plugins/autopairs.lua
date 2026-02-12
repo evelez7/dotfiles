@@ -1,3 +1,4 @@
+-- automatically create pairs of brackets, etc.
 return {
   {
     "windwp/nvim-autopairs",

@@ -32,23 +32,22 @@ vim.lsp.config('clangd', {
   },
   -- Merge the capabilities from cmp_nvim with others possibly found elsewhere
   capabilities = vim.tbl_extend('keep', lsp_capabilities or {}, lsp_status.capabilities),
-  -- Attach lsp_status once clangd runs
   on_attach = function(client, bufnr)
+    -- Attach lsp_status once clangd runs
     lsp_status.on_attach(client)
+    -- inlay hints 
+    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
   end,
+  settings = {
+      InlayHints = {
+        Enabled = true,
+        ParameterNames = true,
+        DeducedTypes = true,
+        Designators = true,
+      },
+      fallbackFlags = { "-std=c++20" },
+  },
 })
 
 vim.lsp.enable('clangd')
-
--- Only start clangd when entering a C++ source file
-vim.api.nvim_create_autocmd({'BufEnter', 'BufWinEnter'}, {
-  pattern = { '*.c', '*.cpp', '*.h', '*.hpp', '*.cc', '*.cxx' },
-  callback = function(args)
-    vim.lsp.start({
-      name = 'clangd',
-      cmd = {'clangd'},
-      root_dir = vim.fs.root(0, {{'build', '.clangd'}, 'compile_commands.json'})
-    })
-  end
-})
 

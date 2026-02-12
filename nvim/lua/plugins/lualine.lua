@@ -40,7 +40,7 @@ return {
       sections = {
         lualine_a = { mode },
         lualine_b = { branch },
-        lualine_c = { diff, filename,
+        lualine_c = {
           function()
             return require("lsp-status").status()
           end,
