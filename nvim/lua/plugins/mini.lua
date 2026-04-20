@@ -22,8 +22,7 @@ return {
   {
     'nvim-mini/mini.cursorword',
     config = function()
-      local MiniCursorWord = require('mini.cursorword')
-      MiniCursorWord.setup()
+      require('mini.cursorword').setup()
     end
   }
 }

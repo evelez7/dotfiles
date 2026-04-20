@@ -9,6 +9,9 @@ vim.keymap.set("v", ">", ">gv", opts)
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-N>:FloatermToggle<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>t', ':FloatermToggle<CR>', opts)
 
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+
 -- Telescope
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find files' })
